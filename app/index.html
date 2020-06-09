@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<form action=# method="post" class="form-add-str">
+    <fieldset class="form-add-str_wrap">
+        <label>Введите данные:</label> </br>
+        <input type="number" name="id" min="0" placeholder="ID" oninput="checkForUniqueValue(this)" required>
+        <input type="text" name="username" placeholder="Name" maxlength="100" required>
+        <input type="number" name="age" min="1" max="1000" placeholder="Age" oninput="removeNumbers(this)" required>
+        <input class="btn" type="submit" name="submit" value="Сохранить">
+    </fieldset>
+
+</form>
+
+<script src="./js/common.js"></script>
+</body>
+</html>

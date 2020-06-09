@@ -1,0 +1,26 @@
+{
+  "name": "myfirstproject",
+  "version": "1.0.0",
+  "description": "My First Gulp Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ksu",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-scss": "^1.4.0",
+    "gulp-uglifyjs": "^0.6.2"
+  },
+  "dependencies": {
+    "autoprefixer": "^9.8.0",
+    "brow": "0.0.4",
+    "gulp-sourcemaps": "^2.6.5",
+    "postcss-cli": "^7.1.1"
+  }
+}
