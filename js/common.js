@@ -8,7 +8,7 @@ function displayTable(array) {
     tableArr.push('<tr><th scope="col" class="th">ID</th> <th scope="col" colspan = "2" class="th">Name</th><th scope="col" class="th">Age</th> <th></th></tr>');
     tableArr.push('<tr><td></td> <td><button class="sort-button" onclick=sortArrayAscending("Surname")><img src="./svg/sort_ascending.png"></button> <button class="sort-button" onclick=sortArrayDownward("Surname")><img src="./svg/sort_descending.png"></button></td> ' +
         '<td><button class="sort-button" onclick=sortArrayAscending("Name")><img src="./svg/sort_ascending.png"></button><button class="sort-button" onclick=sortArrayDownward("Name")><img src="./svg/sort_descending.png"></button></td> ' +
-        '<td><button class="sort-button" onclick=sortArrayAscending("Age")><img src="./svg/sort_ascending.png"></button><button class="sort-button" onclick=sortArrayDownward("Age")><img src="./svg/sort_descending.png"></button></td><td colspan = "2"><button class="add-button" onclick=showDialog() >Add</button></td></tr>');
+        '<td><button class="sort-button" onclick=sortArrayAscending("Age")><img src="./svg/sort_ascending.png"></button><button class="sort-button" onclick=sortArrayDownward("Age")><img src="./svg/sort_descending.png"></button></td><td colspan = "2"><button class="add-button" onclick=showDialog()>Add</button></td></tr>');
 
     array.forEach((obj, index) => {
         tableArr.push(`<tr><td>${obj.ID}</td> <td>${obj.Surname}</td><td>${obj.Name}</td> <td>${obj.Age}</td> <td><button class="add-button" onclick=showDialog(${index})>Edit</button></td><td><button id="${obj.ID}" class="add-button" onclick=removeUser(${obj.ID})>Delete</button></td></tr>`);
@@ -120,7 +120,6 @@ function sortArrayAscending(value) {
         })
     }
 
-
     if (value === "Name") {
         arrayPersons.sort(function (a, b) {
             let nameA = a.Name.toLowerCase(), nameB = b.Name.toLowerCase();
@@ -175,7 +174,7 @@ function removeNumbers(input) {
 
 async function downloadJsonFile() {
 
-    arrayPersons = await fetch("../big_data_persons.json")
+    arrayPersons = await fetch("./big_data_persons.json")
         .then(res => res.json())
         .catch(err => console.error(err));
 
