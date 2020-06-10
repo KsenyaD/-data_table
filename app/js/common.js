@@ -17,22 +17,48 @@ function displayTable(array) { // отрисовка таблицы
     wrap.innerHTML = tableArr.join('\n')
 }
 
-function checkForUniqueValue(input) {
-    for (let i = 0; i < arrayPersons.length; i++) {
+function addInArray(form) {
+
+    const id = form.id.value;
+    const age = form.age.value;
+    let username = form.username.value.split(" ");
+
+    for (let i = 0; i < arrayPersons.length; i++) { //сразвнение введенного id на уникальность
         let value = arrayPersons[i].ID;
-        if (value === input.value) {
-            input.value = " ";
+        if (value === id) {
             alert("ID не уникально");
-            break
+            return false
         }
     }
-} //сразвнение введенного id на уникальность
 
+    username = username.filter((element) => {
+        return element.length > 0
+    });
+
+    if (username.length !== 2) {
+        alert("Имя и фамилия введено не корректно");
+        return false
+    }
+
+
+    const obj = {
+        "ID": id,
+        "Surname": username[0],
+        "Name": username[1],
+        "Age": age
+    };
+    arrayPersons.unshift(obj);
+    displayTable(arrayPersons);
+    form.classList.remove("form-add-str__active");
+    return false;
+}
 
 function showDialog() {
+    form.id.value = "";
+    form.age.value = "";
+    form.username.value = "";
     form.classList.add("form-add-str__active")
 } // добавление строчки
-
 
 function sortArrayAscending(value) {
     if (value === "Age") {
@@ -85,7 +111,6 @@ function sortArrayDownward(value) {
         })
     }
 
-
     if (value === "Name") {
         arrayPersons.sort(function (a, b) {
             let nameA = a.Name.toLowerCase(), nameB = b.Name.toLowerCase();
@@ -96,7 +121,6 @@ function sortArrayDownward(value) {
             return 0
         })
     }
-
 
     displayTable(arrayPersons);
 } //сортировка по убыванию
